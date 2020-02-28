@@ -1,0 +1,5 @@
+Flask
+Flask-RestPlus
+Werkzeug==0.16.0
+pymongo
+gunicorn

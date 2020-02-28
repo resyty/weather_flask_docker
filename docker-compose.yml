@@ -1,0 +1,23 @@
+version: '3'
+services:
+  api:
+    image: debian
+    build: ./data
+    container_name: weather_flask_api
+    volumes:
+      - ./app/projet/weather_flask_api:/opt/projet
+    ports:
+      - 8081:8081
+
+
+  mongo:
+    image: mongo
+    container_name: weather_flask_database
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: adminmongo
+      MONGO_INITDB_ROOT_PASSWORD: mongoadmin
+    volumes:
+      - ./data/mongo:/data/db
+    ports:
+      - 27017:27017
